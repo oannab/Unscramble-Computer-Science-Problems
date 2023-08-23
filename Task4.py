@@ -40,7 +40,7 @@ for i in texts:
 for i in calls:
     telem_numbers.add(i[0])
     reg_numbers.add(i[1])
-telem_numbers =(sorted(telem_numbers.difference(reg_numbers)))
+telem_numbers = sorted(list(telem_numbers - reg_numbers))
 
 
 print("These numbers could be telemarketers: ")
