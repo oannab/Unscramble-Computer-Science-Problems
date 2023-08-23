@@ -51,7 +51,7 @@ selected_calls = [
     for call in relevant_calls
     if call.startswith("(0") or call.startswith("7") or call.startswith("8") or call.startswith("9") or '140' in call
 ]
-selected_calls = sorted(set(selected_calls))
+selected_calls = sorted(set(selected_calls), key=lambda x: (len(x), x))
 
 
 # final_list = []
