@@ -19,21 +19,19 @@ also time spent on the phone.
 Print a message:"""
 
 
-phone={}
+phone = {}
+
 for call in calls:
     if call[0] not in phone:
-        phone[call[0]] = int(call[3])
-    else:
-        phone[call[0]] += int(call[3])
+        phone[call[0]] = 0
+    phone[call[0]] += int(call[3])
 
     if call[1] not in phone:
-        phone[call[1]] = int(call[3])
-    else:
-        phone[call[1]] += int(call[3])    
-        
-phone_no = sorted(phone.items(), key=lambda item: item[1])[-1] # O(n log n)
+        phone[call[1]] = 0
+    phone[call[1]] += int(call[3])
+
+longest_phone = max(phone, key=phone.get)
+longest_time = phone[longest_phone]
        
 
-print(f"{phone_no[0]} spent the longest time, {phone_no[1]} seconds, on the phone during September 2016.")
-
-
+print(f"{longest_phone} spent the longest time, {longest_time} seconds, on the phone during September 2016.")
